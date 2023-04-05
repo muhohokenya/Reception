@@ -4,13 +4,13 @@ pipeline {
     stages {
         stage('Pre Build') {
             steps {
-                echo 'Hello Reception'
+                echo 'Hello Pre Build'
             }
         }
 
         stage('Build') {
             steps {
-                echo 'Hello Reception'
+                echo 'Hello Build'
             }
         }
     }
