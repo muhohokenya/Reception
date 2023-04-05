@@ -17,13 +17,20 @@ repositories {
 }
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
+
+	//MySql Database
 	runtimeOnly("com.mysql:mysql-connector-j")
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+	//Validation
+	implementation("org.springframework.boot:spring-boot-starter-validation")
 }
 
 tasks.withType<KotlinCompile> {
@@ -32,6 +39,8 @@ tasks.withType<KotlinCompile> {
 		jvmTarget = "17"
 	}
 }
+
+
 
 tasks.withType<Test> {
 	useJUnitPlatform()

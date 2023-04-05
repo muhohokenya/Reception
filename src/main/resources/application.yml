@@ -1,2 +1,17 @@
-{
-    }
+server:
+  port: 8081
+spring:
+  application:
+    name: Reception
+  datasource:
+    password: password
+    url: jdbc:mysql://localhost:3308/reception
+#    url: jdbc:mysql://localhost:3308/reception
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        show_sql: true

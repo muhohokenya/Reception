@@ -1,0 +1,27 @@
+version: "3.9"
+services:
+  mysql:
+    container_name: "mysql_container"
+    environment:
+      - MYSQL_ROOT_PASSWORD=my-secret-pw
+    ports:
+      - '3306:3306'
+    command: --init-file /data/application/init.sql
+    image: 'muhohoweb/mysql_image'
+    volumes:
+      - ./init.sql:/data/application/init.sql
+      - ./src/mysql:/var/lib/mysql
+
+
+
+  reception:
+    build:
+      context: ./
+    image: muhohoweb/reception
+    container_name: "reception_container"
+    ports:
+      - "80:8081"
+    depends_on:
+      - mysql
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql_container:3306/reception

@@ -1,0 +1,14 @@
+FROM --platform=linux/amd64 mysql:latest
+
+
+# Set environment variables for MySQL
+ENV MYSQL_ROOT_PASSWORD=my-secret-pw
+ENV MYSQL_DATABASE=reception
+#ENV MYSQL_PASSWORD=my-secret-pw
+
+# Copy SQL scripts to create database and user
+COPY ./init.sql /data/application/init.sql
+#COPY ./init/ /docker-entrypoint-initdb.d/
+
+# Expose MySQL port
+EXPOSE 3306
