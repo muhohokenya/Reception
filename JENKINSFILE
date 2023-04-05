@@ -2,15 +2,13 @@ pipeline {
     agent any
 
     stages {
-        stage('first Stage') {
+        stage('Pre Build') {
             steps {
                 echo 'Hello Reception'
             }
         }
-    }
 
-    stages {
-        stage('Build Stage') {
+        stage('Build') {
             steps {
                 echo 'Hello Reception'
             }
